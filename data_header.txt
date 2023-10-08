@@ -1,1 +1,1 @@
-Time[min:sec] P[hPa]        T[C]          U[%]          Wsp[m/s]      Wdir[Grd]     Lon [�]       Lat [�]       Altitude[m]   GeoPot[m']    Dew[C]        Vi Te[C]      Rs[m/min]    
+min sec P[hPa]        T[C]          U[%]          Wsp[m/s]      Wdir[Grd]     Lon[o]       Lat[o]       Altitude[m]   GeoPot[m']    
