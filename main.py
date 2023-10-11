@@ -191,7 +191,7 @@ def unstable_profiles_fig(z,theta,Ur,U,ws,layer_z=None):
 #-----------------------------------------------------------
 #                    DATA ADQUISITION
 #-----------------------------------------------------------
-df = pd.read_csv('./data20210920.txt', sep='\s+') #\s+ for one or more spaces between columns
+df = pd.read_csv('./DATA/data20210920.txt', sep='\s+') #\s+ for one or more spaces between columns
 
 p = df['P[hPa]'].tolist() * units.hPa   #Pressure in hPa
 T = df['T[C]'].tolist() * units.degC    #Temperatura in celsius
@@ -215,23 +215,19 @@ skew_fig(500,1000,800,-7,30,p,T,Td,True)
 
 
 
-fig, (ax1, ax2, ax3, ax4, ax5) = plt.subplots(1, 5, figsize=(16,9),layout='constrained', sharey=True)
-ax1.plot(theta, z)
-ax1.set_xlabel('potential temperature (ºC)')
+fig, (ax1, ax2, ax3) = plt.subplots(1, 3, figsize=(16,9),layout='constrained', sharey=True)
+ax1.plot(Td, z, label = "Dew Point Temperature")
+ax1.plot(T,z, label = "Temperature")
+ax1.legend(loc='upper right')
+ax1.set_xlabel('Temperatures (ºC)')
 ax1.set_ylabel('altitude (m)')
 
-ax2.plot(T, z)
-ax2.set_xlabel('Temperature (T)')
+ax2.plot(Ur, z)
+ax2.set_xlabel('relative humidity (%)')
 
 ax3.plot(ws, z)
 ax3.set_xlabel('wind speed (m/s)')
 
-ax4.plot(theta_e, z)
-ax4.set_xlabel('potential equivalent temperature (ºC)')
-
-ax5.plot(Ur, z)
-ax5.set_xlabel('relative humidity (%)')
 
 
 plt.show()
-
